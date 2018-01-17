@@ -1,0 +1,17 @@
+<%= form_for @teacher do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_name %><br>
+    <%= form.text_area :subject_name %>
+  </p>
+  <p>
+    <%= form.label :salary %><br>
+    <%= form.text_area :salary %>
+  </p>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>

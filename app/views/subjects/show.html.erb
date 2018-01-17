@@ -1,0 +1,98 @@
+<h2>Subject:</h2>
+<p><%= @subject.name %></p>
+<p><%= @subject.subject_duration %></p>
+
+<h2>Students</h2>
+<% @subject.students.each do |student| %>
+  <p>
+    <strong>Name:</strong>
+    <%= student.name %>
+  </p> 
+  <p>
+    <strong>Address:</strong>
+    <%= student.address %>
+  </p>
+  <p>
+    <strong>Phone no:</strong>
+    <%= student.phone_no %>
+  </p>
+  <p>
+    <strong>Percentage:</strong>
+    <%= student.percentage %>
+  </p>
+  <p>
+    <%= link_to 'Edit student', edit_student_path(student) %><br>
+    <%= link_to 'Destroy student', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a student:</h2>
+<%= form_for @subject.students.build do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </p>
+  <p>
+    <%= form.label :phone_no %><br>
+    <%= form.text_area :phone_no %>
+  </p>
+  <p>
+    <%= form.label :percentage %><br>
+    <%= form.text_area :percentage %>
+  </p>
+  <%= form.hidden_field :subject_ids, :value => @subject.id %>
+  <%= form.hidden_field :student_id, :value => @subject.students.ids %>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>
+<br> <%= link_to 'All students', students_path %> <br>
+
+<h2>Teachers</h2>
+<% @subject.teachers.each do |teacher| %>
+  <p>
+    <strong>Name:</strong>
+    <%= teacher.name %>
+  </p> 
+  <p>
+    <strong>Subject Name:</strong>
+    <%= teacher.subject_name %>
+  </p>
+  <p>
+    <strong>Salary:</strong>
+    <%= teacher.salary %>
+  </p>
+  <p>
+    <%= link_to 'Edit teacher', edit_teacher_path(teacher) %> <br>
+    <%= link_to 'Destroy teacher', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a teacher:</h2>
+<%= form_for @subject.teachers.build do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_name %><br>
+    <%= form.text_area :subject_name %>
+  </p>
+  <p>
+    <%= form.label :salary %><br>
+    <%= form.text_area :salary %>
+  </p>
+  <%= form.hidden_field :subject_id, :value => @subject.id %>
+  <%= form.hidden_field :teacher_id, :value => @subject.teachers.ids %>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>
+<br> <%= link_to 'All teachers', teachers_path %> <br>
+
+<%= link_to 'Edit subject', edit_subject_path(@subject) %>  |
+<%= link_to 'Back', subjects_path %>

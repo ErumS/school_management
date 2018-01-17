@@ -1,0 +1,13 @@
+<%= form_for @subject do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_duration %><br>
+    <%= form.text_area :subject_duration %>
+  </p>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>

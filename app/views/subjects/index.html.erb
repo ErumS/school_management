@@ -1,0 +1,16 @@
+<h1>Subjects:</h1><br>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @subjects.each do |subject| %>
+    <tr>
+      <td><%= subject.name %></td>
+      <td><%= link_to 'Show', subject_path(subject) %></td>
+      <td><%= link_to 'Edit subject', edit_subject_path(subject) %></td>  
+      <td><%= link_to 'Destroy', subject_path(subject), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Home', schools_path %>

@@ -1,0 +1,47 @@
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p> 
+<p>
+  <strong>Address:</strong>
+  <%= @school.address %>
+</p>
+<p>
+  <strong>Phone no:</strong>
+  <%= @school.phone_no %>
+</p>
+ 
+<h2>Classrooms</h2>
+<%= render @school.classrooms %>
+ 
+<h2>Add a classroom:</h2>
+<%= render 'classrooms/form' %>
+
+<br> <%= link_to 'All classrooms', classrooms_path %> <br>
+
+<h2>Students</h2>
+<%= render @school.students %>
+ 
+<h2>Add a student:</h2>
+<%= render 'students/form' %>
+
+<br> <%= link_to 'All students', students_path %> <br>
+
+<h2>Subjects</h2>
+<%= render @school.subjects %>
+ 
+<h2>Add a subject:</h2>
+<%= render 'subjects/form' %>
+
+<br> <%= link_to 'All subjects', subjects_path %> <br>
+
+<h2>Teachers</h2>
+<%= render @school.teachers %>
+ 
+<h2>Add a teacher:</h2>
+<%= render 'teachers/form' %>
+
+<br> <%= link_to 'All teachers', teachers_path %> <br>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

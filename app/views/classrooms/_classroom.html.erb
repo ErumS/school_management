@@ -1,0 +1,12 @@
+<p>
+  <strong>Standard:</strong>
+  <%= classroom.standard %>
+</p> 
+<p>
+  <strong>Classroom:</strong>
+  <%= classroom.no_of_students %>
+</p>
+<p>
+  <%= link_to 'Edit Classroom', edit_classroom_path(classroom , id:@school.id) %> <br>
+  <%= link_to 'Destroy Classroom', classroom, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

@@ -1,0 +1,16 @@
+<p>
+  <strong>Name:</strong>
+  <%= teacher.name %>
+</p> 
+<p>
+  <strong>teacher Name:</strong>
+  <%= teacher.subject_name %>
+</p>
+<p>
+  <strong>Salary:</strong>
+  <%= teacher.salary %>
+</p>
+<p>
+  <%= link_to 'Edit teacher', edit_teacher_path(teacher, id:@school.id) %>  <br>
+  <%= link_to 'Destroy teacher', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

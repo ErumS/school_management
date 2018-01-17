@@ -1,0 +1,16 @@
+<h1>Classrooms:</h1><br>
+<table>
+  <tr>
+    <th>Standard</th>
+  </tr>
+  <% @classrooms.each do |classroom| %>
+    <tr>
+      <td><%= classroom.standard %></td>
+      <td><%= link_to 'Show', classroom_path(classroom) %></td>
+      <td><%= link_to 'Edit Classroom', edit_classroom_path(classroom) %></td>
+      <td><%= link_to 'Destroy', classroom_path(classroom), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Home', schools_path %>

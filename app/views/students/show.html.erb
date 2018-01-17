@@ -1,0 +1,84 @@
+<h2>Student:</h2>
+<p><%= @student.name %></p>
+<p><%= @student.address %></p>
+<p><%= @student.phone_no %></p>
+<p><%= @student.percentage %></p>
+
+<h2>Subjects</h2>
+<% @student.subjects.each do |subject| %>
+  <p>
+    <strong>Name:</strong>
+    <%= subject.name %>
+  </p> 
+  <p>
+    <strong>Duration:</strong>
+    <%= subject.subject_duration %>
+  </p>
+  <p>
+    <%= link_to 'Edit subject', edit_subject_path(subject) %> <br>
+    <%= link_to 'Destroy subject', subject, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a subject:</h2>
+<%= form_for @student.subjects.build do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_duration %><br>
+    <%= form.text_area :subject_duration %>
+  </p>
+  <%= form.hidden_field :student_ids, :value => @student.id %>
+  <%= form.hidden_field :subject_id, :value => @student.subjects.ids %>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>
+<br> <%= link_to 'All subjects', subjects_path %> <br>
+
+<h2>Teachers</h2>
+<% @student.teachers.each do |teacher| %>
+  <p>
+    <strong>Name:</strong>
+    <%= teacher.name %>
+  </p> 
+  <p>
+    <strong>Subject Name:</strong>
+    <%= teacher.subject_name %>
+  </p>
+  <p>
+    <strong>Salary:</strong>
+    <%= teacher.salary %>
+  </p>
+  <p>
+    <%= link_to 'Edit teacher', edit_teacher_path(teacher) %> <br>
+    <%= link_to 'Destroy teacher', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a teacher:</h2>
+<%= form_for @student.teachers.build do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_name %><br>
+    <%= form.text_area :subject_name %>
+  </p>
+  <p>
+    <%= form.label :salary %><br>
+    <%= form.text_area :salary %>
+  </p>
+  <%= form.hidden_field :student_ids, :value => @student.id %>
+  <%= form.hidden_field :teacher_id, :value => @student.teachers.ids %>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>
+<br> <%= link_to 'All teachers', teachers_path %> <br>
+
+<%= link_to 'Edit student', edit_student_path(@student) %>  |
+<%= link_to 'Back', students_path %>

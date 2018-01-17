@@ -1,0 +1,20 @@
+<h1><font color="Maroon">Listing schools</font></h1>
+<%= link_to 'New school', new_school_path %><br><br> 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @schools.each do |school| %>
+    <tr>
+      <td><%= school.name %></td>
+      <td><%= link_to 'Show', school_path(school)  %></td>
+      <td><%= link_to 'Edit', edit_school_path(school) %></td>
+      <td><%= link_to 'Destroy', school_path(school), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'All classrooms', classrooms_path  %><br>
+<%= link_to 'All students', students_path  %><br>
+<%= link_to 'All subjects', subjects_path  %><br>
+<%= link_to 'All teachers', teachers_path  %>

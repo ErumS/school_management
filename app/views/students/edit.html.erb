@@ -1,0 +1,21 @@
+<%= form_for @student do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %>
+  </p>
+  <p>
+    <%= form.label :phone_no %><br>
+    <%= form.text_area :phone_no %>
+  </p>
+  <p>
+    <%= form.label :percentage %><br>
+    <%= form.text_area :percentage %>
+  </p>
+  <p>
+    <%= form.submit "Add" %>
+  </p>
+<% end %>

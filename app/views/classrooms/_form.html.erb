@@ -1,0 +1,14 @@
+<%= form_for @school.classrooms.build do |form| %>
+  <p>
+    <%= form.label :standard %><br>
+    <%= form.text_field :standard %>
+  </p>
+  <p>
+    <%= form.label :no_of_students %><br>
+    <%= form.text_area :no_of_students %>
+  </p>
+  <%= form.hidden_field :school_id, :value => @school.id %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

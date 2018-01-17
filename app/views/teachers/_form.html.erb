@@ -1,0 +1,22 @@
+<%= form_for @school.teachers.build do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :subject_name %><br>
+    <%= form.text_area :subject_name %>
+  </p>
+  <p>
+    <%= form.label :salary %><br>
+    <%= form.text_area :salary %>
+  </p>
+
+  <%= form.hidden_field :school_id, :value => @school.id %>
+  <%= form.hidden_field :classroom_id, :value => @school.classrooms.ids %>
+  <%= form.hidden_field :student_id, :value => @school.students.ids %>
+  <%= form.hidden_field :subject_id, :value => @school.subjects.ids %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

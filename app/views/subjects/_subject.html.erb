@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= subject.name %>
+</p> 
+<p>
+  <strong>Subject Duration:</strong>
+  <%= subject.subject_duration %>
+</p>
+<p>
+  <%= link_to 'Edit subject', edit_subject_path(subject, id:@school.id) %>  <br>
+  <%= link_to 'Destroy subject', subject, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
